@@ -1,0 +1,66 @@
+<!-- <p>accordian-today works!</p> -->
+
+<div class="soccer">
+
+    <div class="accordion" id="soccer">
+        <div class="card">
+            <div class="card-header" id="scr">
+                <h2 class="mb-0">
+                    <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
+                        data-target="#scrone" aria-expanded="true" aria-controls="scrone">
+                        <p>Soccer</p>
+                    </button>
+                </h2>
+            </div>
+
+            <div id="scrone" class="collapse" aria-labelledby="scr" data-parent="#soccer">
+                <div class="card-body">
+                    <li *ngFor="let data of soccerData">{{data.open_date | date:'shortTime'}}  &nbsp;&nbsp;&nbsp; {{ data.event_name}}</li>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="cricket">
+
+        <div class="accordion" id="criOne">
+            <div class="card">
+                <div class="card-header" id="cricket">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
+                            data-target="#expand" aria-expanded="true" aria-controls="cricket">
+                            <p>Cricket</p>
+                        </button>
+                    </h2>
+                </div>
+
+                <div id="expand" class="collapse" aria-labelledby="cricket" data-parent="#criOne">
+                    <div class="card-body">
+                        <li *ngFor="let data of CricketData">{{data.open_date | date:'shortTime'}}  &nbsp;&nbsp;&nbsp;   {{ data.event_name}}</li>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="Tennis">
+            
+        <div class="accordion" id="criOne">
+            <div class="card">
+                <div class="card-header" id="cricket">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
+                            data-target="#tennis" aria-expanded="true" aria-controls="cricket">
+                            <h4>Tennis</h4>
+                        </button>
+                    </h2>
+                </div>
+
+                <div id="tennis" class="collapse" aria-labelledby="cricket" data-parent="#criOne">
+                    <div class="card-body">
+                        <li *ngFor="let data of tennisData">{{data.open_date | date:'shortTime'}}  &nbsp;&nbsp;&nbsp;{{ data.event_name}}</li>
+                    </div>
+                </div>
+            </div>
+
+        </div>
