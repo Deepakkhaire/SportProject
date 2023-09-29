@@ -1,27 +1,25 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { map } from "rxjs";
+import { Observable } from "rxjs";
 
 @Injectable({
-    providedIn : 'root'
+    providedIn: 'root'
 })
 
-export class DataHandlerService{
+export class DataHandlerService {
     baseUrl = `https://centre.7wickets.net:4000/api/v1-custom/getLiveMatches`;
+    sportData: any;
+    
 
-    constructor(private http : HttpClient){
+    constructor(private http: HttpClient) {
 
     }
 
-    getSportsData(){
-        return this.http.get(this.baseUrl)
-        // .pipe(map((rawData :any)=>{
-        //     let arr = [];
-        //     for(let data in rawData){
-        //         arr.push({...rawData[data]})
-        //     }
-        //     arr.splice(0, 1)
-        //     return arr
-        // }))
+    getSportsData(): Observable<any> {
+        return this.http.get<any>(this.baseUrl);
+    }
+    getData(data:any){
+        this.sportData = data;
+        console.log(this.sportData);
     }
 }

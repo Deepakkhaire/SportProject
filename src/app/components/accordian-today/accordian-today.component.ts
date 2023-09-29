@@ -16,9 +16,9 @@ export class AccordianTodayComponent {
   tennisData:any;
   constructor(private dataServe: DataHandlerService) { }
   ngOnInit(): void {
-    this.dataServe.getSportsData().subscribe((res: any) => {
-      this.sportData = res;
-      console.log(this.sportData.data);
+    this.sportData = this.dataServe.sportData;
+    console.log(this.sportData);
+    
       this.TodayArr = this.sportData.data.filter((data: any) => {
         var date = new Date().toLocaleString();;
         console.log(date);
@@ -39,6 +39,5 @@ export class AccordianTodayComponent {
         return tennis.sport_name === 'Tennis'
       })
       console.log(this.tennisData);
-    })
   }
 }

@@ -7,4 +7,18 @@ import { Component } from '@angular/core';
 })
 export class SportTabComponent {
 
+  tabs = [
+    {
+      label: 'InPlay',
+      route: 'inplay-matches',
+    },
+    {
+      label: 'Today',
+      route: 'today-matches',
+    },
+    {
+      label: 'Tomorrow',
+      route: 'tomorrow-matches',
+    },
+  ];
 }

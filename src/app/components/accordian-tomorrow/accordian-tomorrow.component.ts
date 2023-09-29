@@ -14,9 +14,8 @@ export class AccordianTomorrowComponent {
   inPlay:any;
   constructor(private dataServe: DataHandlerService) { }
   ngOnInit(): void {
-    this.dataServe.getSportsData().subscribe((res: any) => {
-      this.sportData = res;
-      console.log(this.sportData.data);
+    this.sportData  = this.dataServe.sportData
+      console.log(this.dataServe.sportData);
       this.inPlay = this.sportData.data.filter((data: any) => {
         return data.open_date >= '09/30/2023 10:00:00 PM' 
       })
@@ -33,6 +32,6 @@ export class AccordianTomorrowComponent {
         this.tennisData = tennis.sport_id === '2'
       })
       console.log(this.tennisData);
-    })
+   
   }
 }
