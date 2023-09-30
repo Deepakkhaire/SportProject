@@ -6,22 +6,22 @@ import { CdkAccordionModule } from "@angular/cdk/accordion";
 
 
 const AccordRoutes = [{
-    path : '', component : AccordianComponent
+    path: '', component: AccordianComponent
 }]
 
 @NgModule({
-    declarations : [
+    declarations: [
         AccordianComponent
     ],
-    imports : [
+    imports: [
         CommonModule,
         CdkAccordionModule,
         RouterModule.forChild(AccordRoutes)
     ]
 })
 
-export class AccordianModule{
-constructor(){
-    console.log('accordian module');
-}
+export class AccordianModule {
+    constructor() {
+        console.log('accordian module');
+    }
 }

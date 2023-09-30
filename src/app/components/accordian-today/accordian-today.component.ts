@@ -7,26 +7,13 @@ import { DataHandlerService } from 'src/app/services/dataHandler.service';
   styleUrls: ['./accordian-today.component.css']
 })
 export class AccordianTodayComponent {
-  sportData: any;
-  expandedIndex = 0;
-
   TodayArr: any;
   soccerData:any;
   CricketData:any;
   tennisData:any;
   constructor(private dataServe: DataHandlerService) { }
   ngOnInit(): void {
-    this.sportData = this.dataServe.sportData;
-    console.log(this.sportData);
-    
-      this.TodayArr = this.sportData.data.filter((data: any) => {
-        var date = new Date().toLocaleString();;
-        console.log(date);
-        // console.log(data.open_date);
-        // console.log(data.open_date <= date_time);
-        return data.open_date <= '09/29/2023 10:00:00 PM'
-      })
-      console.log(this.TodayArr);
+    this.TodayArr = this.dataServe.todayArr;
       this.soccerData = this.TodayArr.filter((soccer : any)=>{
         return soccer.sport_name === 'Soccer'
       })

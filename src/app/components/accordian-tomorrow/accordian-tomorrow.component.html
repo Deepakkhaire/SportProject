@@ -12,7 +12,7 @@
 
             <div id="expand" class="collapse" aria-labelledby="cricket" data-parent="#criOne">
                 <div class="card-body">
-                    <li *ngFor="let data of cricketData">{{data.open_date | date:'yyyy/mm/dd'}}  &nbsp;&nbsp;&nbsp;   {{ data.event_name}}</li>
+                    <li *ngFor="let data of cricketData">{{data.open_date | date}}  &nbsp;&nbsp;&nbsp;   {{ data.event_name}}</li>
                 </div>
             </div>
         </div>
@@ -31,7 +31,7 @@
 
             <div id="soccer" class="collapse" aria-labelledby="cricket" data-parent="#criOne">
                 <div class="card-body">
-                    <li *ngFor="let data of soccerData">{{data.open_date | date:'yyyy/mm/dd'}}  &nbsp;&nbsp;&nbsp;   {{ data.event_name}}</li>
+                    <li *ngFor="let data of soccerData">{{data.open_date | date}}  &nbsp;&nbsp;&nbsp;   {{ data.event_name}}</li>
                 </div>
             </div>
         </div>
@@ -50,7 +50,7 @@
 
             <div id="tennis" class="collapse" aria-labelledby="cricket" data-parent="#criOne">
                 <div class="card-body">
-                    <li *ngFor="let data of tennisData">{{data.open_date | date:'yyyy/mm/dd'}}  &nbsp;&nbsp;&nbsp;   {{ data.event_name}}</li>
+                    <li *ngFor="let data of tennisData">{{data.open_date | date}}  &nbsp;&nbsp;&nbsp;   {{ data.event_name}}</li>
                 </div>
             </div>
         </div>

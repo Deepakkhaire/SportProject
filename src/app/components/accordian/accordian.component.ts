@@ -19,11 +19,11 @@ export class AccordianComponent implements OnInit {
       this.sportData = res;
       this.dataServe.getData(this.sportData)
       this.inPlay = this.sportData.data.filter((data: any) => {
-        var date_time = new Date("9/28/2023 10:00:00 pm").toLocaleString();
-        console.log(date_time);
+        // var date_time = new Date("9/30/2023 10:00:00 pm").toLocaleString();
+        // console.log(date_time);
         // console.log(data.open_date);
         // console.log(data.open_date <= date_time);
-        return data.open_date <= '09/29/2023 10:00:00 PM' 
+        return data.open_date <= '09/30/2023 10:00:00 AM' 
       })
       console.log(this.inPlay);
       this.cricketData = this.inPlay.filter((cricket : any)=>{
