@@ -4,7 +4,6 @@ import { AccordianComponent } from "./accordian.component";
 import { RouterModule } from "@angular/router";
 import { CdkAccordionModule } from "@angular/cdk/accordion";
 
-
 const AccordRoutes = [{
     path: '', component: AccordianComponent
 }]
@@ -17,7 +16,8 @@ const AccordRoutes = [{
         CommonModule,
         CdkAccordionModule,
         RouterModule.forChild(AccordRoutes)
-    ]
+    ],
+    providers : []
 })
 
 export class AccordianModule {

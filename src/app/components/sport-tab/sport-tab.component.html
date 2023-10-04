@@ -1,18 +1,6 @@
-<!-- <mat-tab-group animationDuration="0ms">
-    <mat-tab  label="In Play" >
-        <a [routerLink]="'/inplay-mathces'"></a>
-    </mat-tab>
-    <mat-tab label="Today" >
-        <a [routerLink]="'/today-matches'"></a>
-    </mat-tab>
-    <mat-tab label="Tomorrow">
-        <a [routerLink]="'/tomorrow-matches'"></a>
-    </mat-tab>
-</mat-tab-group> -->
 
-
-<nav mat-tab-nav-bar [tabPanel]="tabPanel">
-    <a mat-tab-link *ngFor="let tabItem of tabs" [routerLink]="tabItem.route">
+<nav mat-tab-nav-bar [tabPanel]="tabPanel" class=''>
+    <a mat-tab-link *ngFor="let tabItem of tabs" [routerLink]="tabItem.route" [routerLinkActive]="tabItem.active">
       {{tabItem.label}}
     </a>
   </nav>

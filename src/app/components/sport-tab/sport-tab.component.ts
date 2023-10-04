@@ -11,14 +11,17 @@ export class SportTabComponent {
     {
       label: 'InPlay',
       route: 'inplay-matches',
+      active : 'active' 
     },
     {
       label: 'Today',
       route: 'today-matches',
+      active : 'active'
     },
     {
       label: 'Tomorrow',
       route: 'tomorrow-matches',
+      active : 'active'
     },
   ];
 }

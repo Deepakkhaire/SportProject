@@ -13,30 +13,34 @@ export class AccordianComponent implements OnInit {
   soccerData:any;
   tennisData:any;
   inPlay:any;
+  errMsg:string='';
+
   constructor(private dataServe: DataHandlerService) { }
+
   ngOnInit(): void {
     this.dataServe.getSportsData().subscribe((res: any) => {
       this.sportData = res;
       this.dataServe.getData(this.sportData)
       this.inPlay = this.sportData.data.filter((data: any) => {
-        // var date_time = new Date("9/30/2023 10:00:00 pm").toLocaleString();
-        // console.log(date_time);
-        // console.log(data.open_date);
-        // console.log(data.open_date <= date_time);
-        return data.open_date <= '09/30/2023 10:00:00 AM' 
+        var time = new Date();
+        time.setHours( time.getHours() + 4)
+        return new Date(data.openDate) <= time;
       })
-      console.log(this.inPlay);
+      // console.log(this.inPlay);
       this.cricketData = this.inPlay.filter((cricket : any)=>{
-        return cricket.sport_id === '4'
+        return cricket.sportId === '4'
       })
-      console.log(this.cricketData);
+      // console.log(this.cricketData);
       this.soccerData = this.inPlay.filter((soccer : any)=>{
-        return soccer.sport_id === '1'
+        return soccer.sportId === '1'
       })
       this.tennisData = this.inPlay.filter((tennis : any)=>{
-        this.tennisData = tennis.sport_id === '2'
+        this.tennisData = tennis.sportId === '2'
       })
-      console.log(this.tennisData);// no data
+    },
+    (err)=>{
+      console.log(err);
+      this.errMsg = err.message
     })
   }
 

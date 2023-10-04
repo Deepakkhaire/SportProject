@@ -2,6 +2,7 @@ import { NgModule } from "@angular/core"
 import { AccordianTodayComponent } from "./accordian-today.component"
 import { CommonModule } from "@angular/common"
 import { RouterModule } from "@angular/router"
+import { CdkAccordionModule } from "@angular/cdk/accordion"
 
 const accoToday = [
     {
@@ -15,6 +16,7 @@ const accoToday = [
     ],
     imports : [
         CommonModule,
+        CdkAccordionModule,
         RouterModule.forChild(accoToday)
     ]
 })

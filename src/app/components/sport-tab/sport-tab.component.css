@@ -1,0 +1,10 @@
+.mat-mdc-tab-header.mat-mdc-tab-nav-bar-stretch-tabs .mat-mdc-tab-link.active{
+    border-bottom: 4px solid black;
+    background-color: #949899;
+}
+.mat-mdc-tab-header.mat-mdc-tab-nav-bar-stretch-tabs a{
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 20px;
+}

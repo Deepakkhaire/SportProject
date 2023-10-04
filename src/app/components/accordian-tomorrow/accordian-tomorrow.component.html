@@ -1,57 +1,97 @@
+
 <div class="cricket">
-    <div class="accordion" id="criOne">
-        <div class="card">
-            <div class="card-header" id="cricket">
-                <h2 class="mb-0">
-                    <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
-                        data-target="#expand" aria-expanded="true" aria-controls="cricket">
-                        <p>Cricket</p>
-                    </button>
-                </h2>
-            </div>
-
-            <div id="expand" class="collapse" aria-labelledby="cricket" data-parent="#criOne">
-                <div class="card-body">
-                    <li *ngFor="let data of cricketData">{{data.open_date | date}}  &nbsp;&nbsp;&nbsp;   {{ data.event_name}}</li>
-                </div>
-            </div>
+    <cdk-accordion class="example-accordion" >
+      <cdk-accordion-item
+        #cricket="cdkAccordionItem"
+        class="example-accordion-item"
+        role="button"
+        tabindex="0"
+        [attr.id]="'accordion-header-' "
+        [attr.aria-expanded]="cricket.expanded"
+        [attr.aria-controls]="'accordion-body-' ">
+        <div class="example-accordion-item-header bg-info text-dark" (click)="cricket.toggle()">
+          <h3 class="font-weight-bolder acco-header">Cricket</h3>
+          <span class="example-accordion-item-description">
+            <span class="h3 text-dark">{{ cricket.expanded ? '-' : '+'}}</span>
+          </span>
         </div>
-</div>
-<div class="soccer">
-    <div class="accordion" id="criOne">
-        <div class="card">
-            <div class="card-header" id="cricket">
-                <h2 class="mb-0">
-                    <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
-                        data-target="#soccer" aria-expanded="true" aria-controls="cricket">
-                        <p>Soccer</p>
-                    </button>
-                </h2>
-            </div>
-
-            <div id="soccer" class="collapse" aria-labelledby="cricket" data-parent="#criOne">
-                <div class="card-body">
-                    <li *ngFor="let data of soccerData">{{data.open_date | date}}  &nbsp;&nbsp;&nbsp;   {{ data.event_name}}</li>
-                </div>
-            </div>
+        <div
+          class="example-accordion-item-body"
+          role="region"
+          [style.display]="cricket.expanded ? '' : 'none'"
+          [attr.id]="'accordion-body-'"
+          [attr.aria-labelledby]="'accordion-header-'">
+         <table class="table table-striped">
+          <tr *ngFor="let data of cricketData" class="oddData">
+            <td>{{data.openDate | date}}  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ data.eventName}}</td>
+          </tr>
+         </table>
         </div>
-</div>
-<div class="tennis">
-    <div class="accordion" id="criOne">
-        <div class="card">
-            <div class="card-header" id="cricket">
-                <h2 class="mb-0">
-                    <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
-                        data-target="#tennis" aria-expanded="true" aria-controls="cricket">
-                        <p>Tennis</p>
-                    </button>
-                </h2>
-            </div>
-
-            <div id="tennis" class="collapse" aria-labelledby="cricket" data-parent="#criOne">
-                <div class="card-body">
-                    <li *ngFor="let data of tennisData">{{data.open_date | date}}  &nbsp;&nbsp;&nbsp;   {{ data.event_name}}</li>
-                </div>
-            </div>
+      </cdk-accordion-item>
+    </cdk-accordion>
+  </div>
+  
+  <div class="soccer">
+    <cdk-accordion class="example-accordion" >
+      <cdk-accordion-item
+        #soccer="cdkAccordionItem"
+        class="example-accordion-item"
+        role="button"
+        tabindex="0"
+        [attr.id]="'accordion-header-' "
+        [attr.aria-expanded]="soccer.expanded"
+        [attr.aria-controls]="'accordion-body-' ">
+        <div class="example-accordion-item-header  bg-info text-dark" (click)="soccer.toggle()">
+          <h3  class="font-weight-bolder acco-header">Soccer</h3>
+          <span class="example-accordion-item-description">
+            <span class="h3 text-dark">{{ soccer.expanded ? '-' : '+' }}
+            </span>
+          </span>
         </div>
-</div>
+        <div
+          class="example-accordion-item-body"
+          role="region"
+          [style.display]="soccer.expanded ? '' : 'none'"
+          [attr.id]="'accordion-body-'"
+          [attr.aria-labelledby]="'accordion-header-'">
+          <table class="table table-striped">
+            <tr *ngFor="let data of soccerData" class="oddData">
+              <td>{{data.openDate | date}}  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ data.eventName}}</td>
+            </tr>
+           </table>
+        </div>
+      </cdk-accordion-item>
+    </cdk-accordion>
+  </div>
+  
+   <div class="tennis">
+    <cdk-accordion class="example-accordion" >
+      <cdk-accordion-item
+        #accordionItem="cdkAccordionItem"
+        class="example-accordion-item"
+        role="button"
+        tabindex="0"
+        [attr.id]="'accordion-header-' "
+        [attr.aria-expanded]="accordionItem.expanded"
+        [attr.aria-controls]="'accordion-body-' ">
+        <div class="example-accordion-item-header bg-info text-dark" (click)="accordionItem.toggle()">
+          <h3  class="font-weight-bolder acco-header">Tennis</h3>
+          <span class="example-accordion-item-description">
+             <span class="h3 text-dark">{{ accordionItem.expanded ? '-' : '+'}}</span>
+          </span>
+        </div>
+        <div
+          class="example-accordion-item-body"
+          role="region"
+          [style.display]="accordionItem.expanded ? '' : 'none'"
+          [attr.id]="'accordion-body-'"
+          [attr.aria-labelledby]="'accordion-header-'">
+          <table class="table table-striped">
+            <tr *ngFor="let data of tennisData" class="oddData">
+              <td>{{data.openDate | date}}  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ data.eventName}}</td>
+            </tr>
+           </table>
+        </div>
+      </cdk-accordion-item>
+    </cdk-accordion>
+   </div>

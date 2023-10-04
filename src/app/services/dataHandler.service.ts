@@ -9,31 +9,28 @@ import { Observable } from "rxjs";
 export class DataHandlerService {
     baseUrl = `https://centre.7wickets.net:4000/api/v1-custom/getLiveMatches`;
     sportData: any;
-    inPlay : any;
     todayArr : any;
     tomorrowArr : any;
+    errMsg :any
 
-    constructor(private http: HttpClient) {
-
-    }
+    constructor(private http: HttpClient) {}
 
     getSportsData(): Observable<any> {
         return this.http.get(this.baseUrl);
     }
     getData(data:any){
         this.sportData = data;
-        console.log(this.sportData);
-        this.inPlay = data.data.filter((currentData : any)=>{
-            return new Date(currentData.open_date) <= new Date('09/30/2023 01:00:00 PM')
-        })
-        console.log(this.inPlay);
+        // console.log(this.sportData);
+        
         this.todayArr = data.data.filter((todayData : any)=>{
-            return new Date(todayData.open_date) <= new Date()
+            return new Date(todayData.openDate).getDate() <= new Date().getDate()
+
         })
-        console.log(this.todayArr);
+        // console.log(this.todayArr);
         this.tomorrowArr = data.data.filter((tomorrData : any)=>{
-            return new Date(tomorrData.open_date) > new Date() && new Date(tomorrData.open_date).getDate() !== new Date().getDate()
+            return new Date(tomorrData.openDate) > new Date() && new Date(tomorrData.openDate).getDate() !== new Date().getDate()
         })
-        console.log(this.tomorrowArr);
+        // console.log(this.tomorrowArr);
     }
+  
 }

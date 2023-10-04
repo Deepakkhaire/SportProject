@@ -7,6 +7,7 @@ import { DataHandlerService } from 'src/app/services/dataHandler.service';
   styleUrls: ['./accordian-today.component.css']
 })
 export class AccordianTodayComponent {
+  expandedIndex = 0;
   TodayArr: any;
   soccerData:any;
   CricketData:any;
@@ -15,16 +16,16 @@ export class AccordianTodayComponent {
   ngOnInit(): void {
     this.TodayArr = this.dataServe.todayArr;
       this.soccerData = this.TodayArr.filter((soccer : any)=>{
-        return soccer.sport_name === 'Soccer'
+        return soccer.sportName === 'Soccer'
       })
-      console.log(this.soccerData);
+      // console.log(this.soccerData);
       this.CricketData = this.TodayArr.filter((cricket : any)=>{
-        return cricket.sport_name =='Cricket'
+        return cricket.sportName =='Cricket'
       })
-      console.log(this.CricketData);
+      // console.log(this.CricketData);
       this.tennisData = this.TodayArr.filter((tennis:any)=>{
-        return tennis.sport_name === 'Tennis'
+        return tennis.sportName === 'Tennis'
       })
-      console.log(this.tennisData);
+      // console.log(this.tennisData);
   }
 }

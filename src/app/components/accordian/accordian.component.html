@@ -1,3 +1,7 @@
+<div *ngIf="errMsg" class="alert alert-danger">
+  {{errMsg}}
+</div>
+
 <div class="cricket">
   <cdk-accordion class="example-accordion" >
     <cdk-accordion-item
@@ -8,10 +12,10 @@
       [attr.id]="'accordion-header-' "
       [attr.aria-expanded]="cricket.expanded"
       [attr.aria-controls]="'accordion-body-' ">
-      <div class="example-accordion-item-header" (click)="cricket.toggle()">
-        <p>Cricket</p>
+      <div class="example-accordion-item-header bg-info text-dark" (click)="cricket.toggle()">
+        <h3 class="font-weight-bolder acco-header">Cricket</h3>
         <span class="example-accordion-item-description">
-          Click to {{ cricket.expanded ? 'close' : 'open' }}
+          <span class="h3 text-dark">{{ cricket.expanded ? '-' : '+'}}</span>
         </span>
       </div>
       <div
@@ -20,7 +24,11 @@
         [style.display]="cricket.expanded ? '' : 'none'"
         [attr.id]="'accordion-body-'"
         [attr.aria-labelledby]="'accordion-header-'">
-       <li *ngFor="let data of cricketData">{{data.event_name}}</li>
+       <table class="table table-striped">
+        <tr *ngFor="let data of cricketData" class="oddData">
+          <td>{{data.eventName}} <sup class="text-success font-weight-bolder">InPlay</sup></td>
+        </tr>
+       </table>
       </div>
     </cdk-accordion-item>
   </cdk-accordion>
@@ -36,10 +44,11 @@
       [attr.id]="'accordion-header-' "
       [attr.aria-expanded]="soccer.expanded"
       [attr.aria-controls]="'accordion-body-' ">
-      <div class="example-accordion-item-header" (click)="soccer.toggle()">
-        <p>Soccer</p>
+      <div class="example-accordion-item-header  bg-info text-dark" (click)="soccer.toggle()">
+        <h3  class="font-weight-bolder acco-header">Soccer</h3>
         <span class="example-accordion-item-description">
-          Click to {{ soccer.expanded ? 'close' : 'open' }}
+          <span class="h3 text-dark">{{ soccer.expanded ? '-' : '+' }}
+          </span>
         </span>
       </div>
       <div
@@ -48,9 +57,11 @@
         [style.display]="soccer.expanded ? '' : 'none'"
         [attr.id]="'accordion-body-'"
         [attr.aria-labelledby]="'accordion-header-'">
-       <li *ngFor="let data of soccerData">
-      {{data.event_name }} 
-      </li>
+        <table class="table table-striped">
+          <tr *ngFor="let data of soccerData" class="oddData">
+            <td>{{data.eventName}} <sup class="text-success font-weight-bolder">InPlay</sup></td>
+          </tr>
+         </table>
       </div>
     </cdk-accordion-item>
   </cdk-accordion>
@@ -66,10 +77,10 @@
       [attr.id]="'accordion-header-' "
       [attr.aria-expanded]="accordionItem.expanded"
       [attr.aria-controls]="'accordion-body-' ">
-      <div class="example-accordion-item-header" (click)="accordionItem.toggle()">
-        <p>Tennis</p>
+      <div class="example-accordion-item-header bg-info text-dark" (click)="accordionItem.toggle()">
+        <h3  class="font-weight-bolder acco-header">Tennis</h3>
         <span class="example-accordion-item-description">
-          Click to {{ accordionItem.expanded ? 'close' : 'open' }}
+           <span class="h3 text-dark">{{ accordionItem.expanded ? '-' : '+'}}</span>
         </span>
       </div>
       <div
@@ -78,8 +89,13 @@
         [style.display]="accordionItem.expanded ? '' : 'none'"
         [attr.id]="'accordion-body-'"
         [attr.aria-labelledby]="'accordion-header-'">
-       <li *ngFor="let data of tennisData">{{tennisData ?  data.event_name : 'no matches' }}</li>
+        <table class="table table-striped">
+          <tr *ngFor="let data of tennisData" class="oddData">
+              <td>{{ data.eventName }} <sup class="text-success font-weight-bolder">InPlay</sup></td>
+            </tr>
+         </table>
       </div>
     </cdk-accordion-item>
   </cdk-accordion>
  </div>
+ <!-- <p class="alert alert-danger">{{errMsg}}</p> -->

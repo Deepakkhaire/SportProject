@@ -14,19 +14,19 @@ export class AccordianTomorrowComponent {
   constructor(private dataServe: DataHandlerService) { }
   ngOnInit(): void {
     this.tomorrowArr = this.dataServe.tomorrowArr;
-      console.log(this.tomorrowArr);
+      // console.log(this.tomorrowArr);
       this.cricketData = this.tomorrowArr.filter((cricket : any)=>{
-        return cricket.sport_id === '4'
+        return cricket.sportId === '4'
       })
-      console.log(this.cricketData);
+      // console.log(this.cricketData);
       this.soccerData = this.tomorrowArr.filter((soccer : any)=>{
-        return soccer.sport_id === '1'
+        return soccer.sportId === '1'
       })
-      console.log(this.soccerData);
+      // console.log(this.soccerData);
       this.tennisData = this.tomorrowArr.filter((tennis : any)=>{
-        this.tennisData = tennis.sport_id === '2'
+        this.tennisData = tennis.sportId === '2'
       })
-      console.log(this.tennisData);
+      // console.log(this.tennisData);
    
   }
 }
